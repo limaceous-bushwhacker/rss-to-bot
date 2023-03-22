@@ -136,7 +136,7 @@ const addItem = (item: { [key: string]: string } & Item, date: Dayjs, subItem: S
   itemsToBeSent.push({
     ...item,
     // pubDate: date.format('YYYY-MM-DD HH:mm:ss'),
-    pubDate: date.format('DD.MM.YYYY HH:mm'),
+    pubDate: date.format('DD\.MM\.YYYY HH:mm'),
     creator: item.creator ?? item.author ?? subItem.title,
   })
 }
