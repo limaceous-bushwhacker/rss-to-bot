@@ -117,7 +117,7 @@ const send = async (item: Item) => {
     }
   }
   try {
-    await delay(500)
+    await delay(1000)
     await bot.sendMessage(
       chatId,
       textTemplate,
