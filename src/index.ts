@@ -107,7 +107,7 @@ const send = async (item: Item) => {
         disable_web_page_preview: true,
       }
       try {
-        await delay(500)
+        await delay(10000)
         await bot.sendPhoto(chatId, images[0], caption)
         success++
         return
@@ -117,7 +117,7 @@ const send = async (item: Item) => {
     }
   }
   try {
-    await delay(1000)
+    await delay(10000)
     await bot.sendMessage(
       chatId,
       textTemplate,
@@ -134,7 +134,7 @@ const itemsToBeSent = [] as Item[]
 const addItem = (item: { [key: string]: string } & Item, date: Dayjs, subItem: Sub) => {
   itemsToBeSent.push({
     ...item,
-    pubDate: date.format('YYYY-MM-DD HH:mm:ss'),
+    pubDate: date.format('DD.MM.YYYY HH:mm'),
     creator: item.creator ?? item.author ?? subItem.title,
   })
 }
