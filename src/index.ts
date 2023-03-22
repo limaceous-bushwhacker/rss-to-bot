@@ -87,8 +87,9 @@ const handleError = (e: any, item: Item, images?: string[]) => {
 let success = 0
 
 const send = async (item: Item) => {
-  const textTemplate = `<b>${safeTagsReplace(item.title?.trim() ?? '')}</b>` + `\n${item.creator?.trim()}\n${item.pubDate?.trim()}\n\n${item.link?.trim()}`
-
+  // const textTemplate = `<b>${safeTagsReplace(item.title?.trim() ?? '')}</b>` + `\n${item.creator?.trim()}\n${item.pubDate?.trim()}\n\n${item.link?.trim()}`
+  const textTemplate = `🚬 <a href=${item.link?.trim()}>${safeTagsReplace(item.title?.trim().replace('&hit=1') ?? '')}</a>` + `\n\n🕔 <code>${item.pubDate?.trim()}</code>`
+  
   if (item.content) {
     const images = []
     for (const i of item.content.matchAll(
@@ -133,7 +134,8 @@ const itemsToBeSent = [] as Item[]
 const addItem = (item: { [key: string]: string } & Item, date: Dayjs, subItem: Sub) => {
   itemsToBeSent.push({
     ...item,
-    pubDate: date.format('YYYY-MM-DD HH:mm:ss'),
+    // pubDate: date.format('YYYY-MM-DD HH:mm:ss'),
+    pubDate: date.format('DD.MM.YYYY HH:mm'),
     creator: item.creator ?? item.author ?? subItem.title,
   })
 }
