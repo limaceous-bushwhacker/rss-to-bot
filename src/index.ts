@@ -89,7 +89,7 @@ let success = 0
 const send = async (item: Item) => {
   // const textTemplate = `<b>${safeTagsReplace(item.title?.trim() ?? '')}</b>` + `\n${item.creator?.trim()}\n${item.pubDate?.trim()}\n\n${item.link?.trim()}`
   // const textTemplate = `<a href="${item.link?.trim()}">${safeTagsReplace(item.title?.trim() ?? '')}</a>` + `\n\n<code>${item.pubDate?.trim()}</code>`
-  const textTemplate = `🚬 [${item.link?.trim()}](${safeTagsReplace(item.title?.trim() ?? '')})\n\n🕔 ${item.pubDate?.trim()}`
+  const textTemplate = `🚬 [${item.link?.trim()}](${safeTagsReplace(item.title?.trim() ?? '')})\n\n🕔 ${item.pubDate?.trim().replace('.','\.')}`
   
   if (item.content) {
     const images = []
