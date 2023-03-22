@@ -88,8 +88,7 @@ let success = 0
 
 const send = async (item: Item) => {
   // const textTemplate = `<b>${safeTagsReplace(item.title?.trim() ?? '')}</b>` + `\n${item.creator?.trim()}\n${item.pubDate?.trim()}\n\n${item.link?.trim()}`
-  const textTemplate = `🚬 <a href="${item.link?.trim()}">${safeTagsReplace(item.title?.trim() ?? '')}</a>` + `\n\n<code>${item.pubDate?.trim()}</code>`
-  // const textTemplate = `🚬 [${item.link?.trim()}](${safeTagsReplace(item.title?.trim() ?? '')})\n\n🕔 ${item.pubDate?.trim()}`
+  const textTemplate = `🚬 <a href="${item.link?.trim()}">${safeTagsReplace(item.title?.trim() ?? '')}</a>` + `\n\n🕔 <code>${item.pubDate?.trim()}</code>`
   
   if (item.content) {
     const images = []
@@ -135,7 +134,7 @@ const itemsToBeSent = [] as Item[]
 const addItem = (item: { [key: string]: string } & Item, date: Dayjs, subItem: Sub) => {
   itemsToBeSent.push({
     ...item,
-    pubDate: date.format('YYYY-MM-DD HH:mm'),
+    pubDate: date.format('DD.MM.YYYY HH:mm'),
     creator: item.creator ?? item.author ?? subItem.title,
   })
 }
