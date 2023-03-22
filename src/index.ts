@@ -107,7 +107,7 @@ const send = async (item: Item) => {
         disable_web_page_preview: true,
       }
       try {
-        await delay(10000)
+        await delay(3000)
         await bot.sendPhoto(chatId, images[0], caption)
         success++
         return
@@ -117,7 +117,7 @@ const send = async (item: Item) => {
     }
   }
   try {
-    await delay(10000)
+    await delay(3000)
     await bot.sendMessage(
       chatId,
       textTemplate,
