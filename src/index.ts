@@ -87,8 +87,8 @@ const handleError = (e: any, item: Item, images?: string[]) => {
 let success = 0
 
 const send = async (item: Item) => {
-  const textTemplate = `<b>${safeTagsReplace(item.title?.trim() ?? '')}</b>` + `\n${item.creator?.trim()}\n${item.pubDate?.trim()}\n\n${item.link?.trim()}`
-  // const textTemplate = `&#x1F6AC<a href=${item.link?.trim()}>${safeTagsReplace(item.title?.trim() ?? '')}</a>` + `\n\n<code>${item.pubDate?.trim()}</code>`
+  // const textTemplate = `<b>${safeTagsReplace(item.title?.trim() ?? '')}</b>` + `\n${item.creator?.trim()}\n${item.pubDate?.trim()}\n\n${item.link?.trim()}`
+  const textTemplate = `&#x1F6AC<a href=${item.link?.trim()}>${safeTagsReplace(item.title?.trim() ?? '')}</a>` + `\n\n<code>${item.pubDate?.trim()}</code>`
   
   if (item.content) {
     const images = []
