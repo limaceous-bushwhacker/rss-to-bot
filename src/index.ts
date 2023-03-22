@@ -88,8 +88,8 @@ let success = 0
 
 const send = async (item: Item) => {
   // const textTemplate = `<b>${safeTagsReplace(item.title?.trim() ?? '')}</b>` + `\n${item.creator?.trim()}\n${item.pubDate?.trim()}\n\n${item.link?.trim()}`
-  // const textTemplate = `<a href="${item.link?.trim()}">${safeTagsReplace(item.title?.trim() ?? '')}</a>` + `\n\n<code>${item.pubDate?.trim()}</code>`
-  const textTemplate = `🚬 [${item.link?.trim()}](${safeTagsReplace(item.title?.trim() ?? '')})\n\n🕔 ${item.pubDate?.trim().replace('.','\.')}`
+  const textTemplate = `<a href="${item.link?.trim()}">${safeTagsReplace(item.title?.trim() ?? '')}</a>` + `\n\n<code>${item.pubDate?.trim()}</code>`
+  // const textTemplate = `🚬 [${item.link?.trim()}](${safeTagsReplace(item.title?.trim() ?? '')})\n\n🕔 ${item.pubDate?.trim()}`
   
   if (item.content) {
     const images = []
@@ -122,7 +122,7 @@ const send = async (item: Item) => {
     await bot.sendMessage(
       chatId,
       textTemplate,
-      { parse_mode: 'MarkdownV2', disable_web_page_preview: true },
+      { parse_mode: 'HTML', disable_web_page_preview: true },
     )
     success++
   } catch (e) {
