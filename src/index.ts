@@ -134,7 +134,7 @@ const itemsToBeSent = [] as Item[]
 const addItem = (item: { [key: string]: string } & Item, date: Dayjs, subItem: Sub) => {
   itemsToBeSent.push({
     ...item,
-    pubDate: date.format('DD.MM.YYYY HH:mm'),
+    pubDate: date.format('YYYY-MM-DD HH:mm:ss'),
     creator: item.creator ?? item.author ?? subItem.title,
   })
 }
